@@ -53,11 +53,13 @@ class ProductShowView(View):
             return HttpResponseRedirect(reverse('home'))
 
         product = get_object_or_404(Product, pk=product_id)
+        comments = product.comments.all()
 
         viewData = {}
         viewData["title"] = product.name + " - Online Store"
         viewData["subtitle"] = product.name + " - Product information"
         viewData["product"] = product
+        viewData["comments"] = comments
 
         return render(request, self.template_name, viewData)
 

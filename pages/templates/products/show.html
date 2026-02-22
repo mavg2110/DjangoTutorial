@@ -17,5 +17,21 @@
       </div> 
     </div> 
   </div> 
-</div> 
+</div>
+
+<hr>
+
+<h4>Comments</h4>
+
+{% if comments %}
+    <ul class="list-group">
+        {% for comment in comments %}
+            <li class="list-group-item">
+                {{ comment.content }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments yet.</p>
+{% endif %}
 {% endblock %}
